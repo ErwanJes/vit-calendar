@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("images/mockup-vitality2.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.yellow {
+  color: #f6ca33;
+}
+
+.medium-space {
+  margin-bottom: 3em;
+}
+
+.small-space {
+  margin-bottom: 2em;
+}
+
+.xsmall-space {
+  margin-bottom: 1em;
+}
+
+.xxsmall-space {
+  margin-bottom: 0.5em;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-size: 48px;
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.logo {
+  width: 100px;
+  margin: auto;
+}
+
+.line {
+  margin: auto;
+  height: 2px;
+  width: 85px;
+  background-color: #f6ca33;
+}
+
+#calendar-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  padding: 25px;
+  border: 1px #ddd solid;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+#calendar .fc-toolbar.fc-header-toolbar h2 {
+  /* font-family: Arial, Helvetica Neue, Helvetica, sans-serif; */
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 2.5em;
+  font-weight: lighter;
+}
+
+#calendar span {
+  /* Increase font size for text */
+  font-size: 1.0em;
+}
+
+#calendar thead th {
+  /* Update border for table header */
+  border: none;
+  padding: 8px 0 8px 0;
+
+  /* Change text style */
+  text-align: right;
+  text-transform: uppercase;
+  color: #9A9A9A;
+}
+
+.fc-head td {
+  /* Remove table header border */
+  border: none !important;
+}
+
+#calendar .fc-icon {
+  padding: 10px;
+}
+
+#calendar .fc-button-group > * {
+  /* Add space between buttons */
+  margin: 0 2px 0 2px;
+}
+
+#calendar .fc-button-primary {
+  /* change for buttons */
+  background-color: #000000;
+  border-color: #000000;
+}
+
+#calendar .fc-button-primary:hover {
+  /* change for hovered buttons */
+  background-color: #f6ca33;
+  border-color: #f6ca33;
+}
+
+#calendar .fc-today-button {
+  /* Improve 'today' button */
+  padding: 15px 20px;
+  font-size: 1em;
+}
+
+#calendar .fc-button-primary:focus {
+  /* remove border for selected buttons */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#calendar .fc-today {
+  background: #F5F5F5;
+}

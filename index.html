@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="description" content="Get the events for all Vitality's games">
+    <meta property="og:site_name" content="Vitality Calendar">
+    <meta property="og:url" content="https://vitality-calendar.com">
+    <meta property="og:title" content="Vitality Calendar">
+    <meta property="og:description" content="Get the events for all Vitality's games">
+    <meta property="og:image" content="logo.png">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vitality Calendar - All games & all tournaments</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#f6ca33">
+    <link rel="icon" href="favicon.ico" />
+    <meta name="msapplication-TileColor" content="#f6ca33">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- CSS/JS/fonts -->
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href='assets/fullcalendar/packages/core/main.css' rel='stylesheet' />
+    <link href='assets/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src='assets/fullcalendar/packages/core/main.js'></script>
+    <script src='assets/fullcalendar/packages/interaction/main.js'></script>
+    <script src='assets/fullcalendar/packages/daygrid/main.js'></script>
+    <script src='assets/fullcalendar/packages/list/main.js'></script>
+    <script src='assets/fullcalendar/packages/google-calendar/main.js'></script>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'interaction', 'dayGrid', 'list', 'googleCalendar' ],
+          googleCalendarApiKey: 'AIzaSyBqvcvAVBTpVJ0in-WjaDzHW8GBHYiIwhg',
+          events: {
+            googleCalendarId: 'l97vdumvlc1s4ud8nr7979cqvc@group.calendar.google.com',
+            color: '#f6ca33',   // an option!
+            textColor: '#000' // an option!
+          },
+
+          // select event
+          eventClick: function(event) {
+            // get data (empty if undefined)
+            var date = event.event.start.toLocaleDateString() + " - " + event.event.start.toLocaleTimeString();
+            var description = event.event.extendedProps.description ? event.event.extendedProps.description : "";
+            var location = event.event.extendedProps.location ? event.event.extendedProps.location : "";
+
+            // update ui
+            $('#modal-title').html(event.event.title);
+            $('#modal-body-time').html(date);
+            $('#modal-body-desc').html(description);
+            $('#modal-body-location').html(location);
+            $('#calendar-modal').modal();
+            
+            // don't navigate in main tab
+            event.jsEvent.preventDefault();
+          },
+
+          // UI related stuff
+          header: {
+            left: 'title',
+            center: 'month,agendaWeek,agendaDay',
+            right: 'prev,next,today'
+          },
+          selectable: true,
+          selectHelper: true,
+          eventBackgroundColor: "#fff",
+          eventBorderColor: "#fff",
+          eventTextColor: "#000",
+          fixedWeekCount: false, // remove rows if no days
+          aspectRatio: 1.5,
+          buttonText: {
+            today:    'Today' // just to change text
+          },
+          color: 'yellow',
+          textColor: 'black',
+          firstDay: 1
+        });
+        calendar.render();
+      });
+    
+    </script>
+  </head>
+  <body>
+    <div class="small-space"></div>
+
+    <div class="logo">
+      <img src="images/logo.png" width="100px">
+    </div>
+
+    <div class="xsmall-space"></div>
+    <div class="line"></div>
+
+    <div class="xsmall-space"></div>
+    <p class="title white center">UNOFFICIAL VIT<span class="yellow">A</span>LITY CALENDAR</p>
+    
+    <div class="xxsmall-space"></div>
+    <p class="subtitle white center">All matches / All games of Vitality's players - Created by fans for fans</p>
+    <div class="medium-space"></div>
+    <div id="calendar-container">
+    <div id="calendar"></div>
+    </div>
+    <div class="small-space"></div>
+
+
+    <div id="calendar-modal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="modal-title"></h2>
+              </div>
+              <div id="modal-body" class="modal-body">
+                <p id="modal-body-time">[TIME]</p>
+                <p id="modal-body-desc">[DESC]</p>
+                <p id="modal-body-location">[LOCATION]</p>
+              </div>
+          </div>
+      </div>
+      </div>
+  </body>
+</html>
