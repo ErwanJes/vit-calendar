@@ -87,7 +87,13 @@
           },
           color: 'yellow',
           textColor: 'black',
-          firstDay: 1
+          firstDay: 1, // starts weeks on monday
+          eventTimeFormat: {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: false,
+          }
         });
         calendar.render();
       });
