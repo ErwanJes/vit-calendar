@@ -54,7 +54,10 @@
           // select event
           eventClick: function(event) {
             // get data (empty if undefined)
-            var date = event.event.start.toLocaleDateString() + " - " + event.event.start.toLocaleTimeString();
+            var date = event.event.start.toLocaleDateString();
+            if (event.event.start.getHours() != 0) {
+              date = date.concat(" - " + event.event.start.toLocaleTimeString());
+            }
             var description = event.event.extendedProps.description ? event.event.extendedProps.description : "";
             var location = event.event.extendedProps.location ? event.event.extendedProps.location : "";
 
